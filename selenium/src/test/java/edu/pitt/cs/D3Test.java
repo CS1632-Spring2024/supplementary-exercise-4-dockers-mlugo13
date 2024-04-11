@@ -46,9 +46,9 @@ public class D3Test {
   }
   @Test
   public void tEST1LINKS() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     {
       List<WebElement> elements = driver.findElements(By.xpath("//a[contains(@href, \'/reset\')]"));
       assert(elements.size() > 0);
@@ -56,10 +56,10 @@ public class D3Test {
   }
   @Test
   public void tEST2RESET() {
-    driver.get("https://cs1632.appspot.com/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
     js.executeScript("document.cookie = \"1=true\";document.cookie = \"2=true\";document.cookie = \"3=true\";");
-    driver.get("https://cs1632.appspot.com/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Reset")).click();
     {
       List<WebElement> elements = driver.findElements(By.xpath("//li[contains(.,\'ID 1. Jennyanydots\')]"));
@@ -76,22 +76,22 @@ public class D3Test {
   }
   @Test
   public void tEST3CATALOG() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Catalog")).click();
     {
       WebElement element = driver.findElement(By.xpath("/html/body/div/main/div[1]/ol/li[2]/img"));
       String attribute = element.getAttribute("src");
       vars.put("src", attribute);
     }
-    assertEquals(vars.get("src").toString(), "https://cs1632.appspot.com/images/cat2.jpg");
+    assertEquals(vars.get("src").toString(), "http://localhost:8080/images/cat2.jpg");
   }
   @Test
   public void tEST4LISTING() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Catalog")).click();
     {
       List<WebElement> elements = driver.findElements(By.xpath("//*[@id=\"listing\"]/ul/li[1]"));
@@ -114,9 +114,9 @@ public class D3Test {
   }
   @Test
   public void tEST5RENTACAT() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Rent-A-Cat")).click();
     {
       List<WebElement> elements = driver.findElements(By.xpath("//button[@onclick=\'rentSubmit()\']"));
@@ -129,9 +129,9 @@ public class D3Test {
   }
   @Test
   public void tEST6RENT() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Rent-A-Cat")).click();
     driver.findElement(By.id("rentID")).click();
     driver.findElement(By.id("rentID")).sendKeys("1");
@@ -147,10 +147,10 @@ public class D3Test {
   }
   @Test
   public void tEST7RETURN() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=true\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Rent-A-Cat")).click();
     driver.findElement(By.id("returnID")).click();
     driver.findElement(By.id("returnID")).sendKeys("2");
@@ -166,9 +166,9 @@ public class D3Test {
   }
   @Test
   public void tEST8FEEDACAT() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Feed-A-Cat")).click();
     {
       List<WebElement> elements = driver.findElements(By.xpath("//button[@onclick=\'feedSubmit()\']"));
@@ -177,9 +177,9 @@ public class D3Test {
   }
   @Test
   public void tEST9FEED() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Feed-A-Cat")).click();
     driver.findElement(By.id("catnips")).click();
     driver.findElement(By.id("catnips")).sendKeys("6");
@@ -189,19 +189,19 @@ public class D3Test {
   }
   @Test
   public void tEST10GREETACAT() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     driver.findElement(By.linkText("Greet-A-Cat")).click();
     vars.put("greetingText", driver.findElement(By.xpath("//div[@id=\'greeting\']/h4")).getText());
     assertEquals(vars.get("greetingText").toString(), "Meow!Meow!Meow!");
   }
   @Test
   public void tEST11GREETACATWITHNAME() {
-    driver.get("https://localhost:8080/");
+    driver.get("http://localhost:8080/");
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";");
-    driver.get("https://localhost:8080/");
-    driver.get("https://localhost:8080/greet-a-cat/Jennyanydots");
+    driver.get("http://localhost:8080/");
+    driver.get("http://localhost:8080/greet-a-cat/Jennyanydots");
     vars.put("greetingText", driver.findElement(By.xpath("//div[@id=\'greeting\']/h4")).getText());
     assertEquals(vars.get("greetingText").toString(), "Meow! from Jennyanydots.");
   }
